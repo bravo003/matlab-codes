@@ -1,0 +1,20 @@
+clc;
+close all;
+
+a=input("Enter the first no. = ");
+
+tol=input("Enter the tolerance level = ");
+n=input("Enter the no. of iterations = ");
+
+
+g = @(x)((x^3+2)/7);
+
+for i=1:n
+    b=g(a);
+    if(abs(a-b)<tol)
+        fprintf("The fixed point is %f\n",b);
+        break;
+    else
+        a=b;
+    end
+end
