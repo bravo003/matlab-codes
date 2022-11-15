@@ -1,0 +1,26 @@
+clc;
+close all;
+
+a=input("Enter the first no. = ");
+b=input("Enter the second no. = ");
+c=(a+b)/2;
+
+f = @(x)(x^3 + 4*x^2 - 10);
+
+if(f(a)*f(b)<0)
+    while(abs(a-b)>10^-4)
+        c=(a+b)/2;
+        if(f(c)==0)
+            fprintf("The c is root of f(x)\n");
+        elseif(f(a)*f(c)<0)
+            b=c;
+        else
+            a=c;
+        end
+     end
+   else
+        fprintf("The input values are not correct\n");
+end
+
+fprintf("The value of root is %f\n",c);
+
