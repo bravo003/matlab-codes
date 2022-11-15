@@ -1,0 +1,25 @@
+clear;
+clc;
+close all
+
+ A=input('Enter the elements of matrix A:\n ');
+
+ b=input('Enter the elements of the matrix b:\n ');
+
+ n=length(A);
+C = [A b];                                                                                                 
+m=eye(n);
+for i=1:n-1
+    for j=i+1:n
+        m(j,i) = C(j,i)/C(i,i);
+        A(j,:) = A(j,:) - m(j,i)*A(i,:);
+    end
+end
+
+U=A;
+L=m;
+y=L\b;
+
+x=U\y;
+fprintf('The solution is\n');
+disp(x);
