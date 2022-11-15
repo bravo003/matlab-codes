@@ -1,0 +1,19 @@
+ A=input('Enter the x:\n ');
+ B=input('Enter the f(x):\n ');
+ x=input('Enter the point at which you want to find:\n ');
+n=length(A);
+D = zeros(n,n);
+ D(:,1) = B;
+ for j=2:n
+     for i = j:n
+          D(i,j) = (D(i,j-1) - D(i-1,j-1))/(A(i) - A(i-j+1));
+     end
+ end
+  C = D(n,n);
+ for k = n-1: -1 :1
+     C = conv(C, poly(A(k)));
+      r= length(C);
+     C(r) = C(r) + D(k,k);
+ end
+ E = polyval(C,x);
+ disp(E);
