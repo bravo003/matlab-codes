@@ -1,0 +1,30 @@
+clear;
+clc;
+close all
+
+ A=input('Enter the Polynomial 1:\n ');
+
+  B=input('Enter the Polynomial 2:\n ');
+
+ n=length(A);
+ 
+ 
+ sum = 0;
+ x=input("Enter x for the value to be interpolated at : ");
+
+ for i=1:n
+     p=1;
+     l=1;
+     for j=1:n
+         if j~=i
+             p = p * (x - A(j));
+             l = l* (A(i) - A(j));
+             
+         end
+     end
+
+
+     sum = sum + p/l * B(i);
+ end
+
+ disp(sum);
