@@ -1,0 +1,27 @@
+clear;
+clc;
+close all
+
+ A=input('Enter the elements of matrix A:\n ');
+ b=input('Enter the elements of the matrix b:\n ');
+ n=length(A);
+
+C = [A b];                                                  
+n= size(C,1);                                               
+x = zeros(n,1);                                             
+for i=1:n-1
+    for j=i+1:n
+        m = C(j,i)/C(i,i);
+        C(j,:) = C(j,:) - m*C(i,:);
+    end
+end
+x(n) = C(n,n+1)/C(n,n);
+for i=n-1:-1:1
+    summ = 0;
+    for j=i+1:n
+        summ = summ + C(i,j)*x(j,:);
+        x(i,:) = (C(i,n+1) - summ)/C(i,i);
+    end
+end
+
+fprintf('The Solution is %d\n', x);
