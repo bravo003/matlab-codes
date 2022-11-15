@@ -1,0 +1,30 @@
+clear;
+clc;
+close all
+
+ A=input('Enter the elements of matrix A:\n ');
+ 
+  v=input('Enter the eigen vector:\n ');
+
+ n=input('Enter the no. of iterations:\n ');
+
+ tol=input('Enter the level of tolerance:\n ');
+
+
+ v0=v;
+
+  for i=1:n
+      v = A*v0;
+      m=max(abs(v));
+      v=v/m;
+      if abs(v-v0)<tol
+          break;
+      end
+      v0=v;
+  end
+
+
+ fprintf('The greatest eigen values is %2.5f \n' , m);
+
+ disp('The eigen vector is:');
+ disp(v);
