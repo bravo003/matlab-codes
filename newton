@@ -1,0 +1,22 @@
+clc;
+close all;
+
+a=input("Enter the first no. = ");
+
+tol=input("Enter the tolerance level = ");
+n=input("Enter the no. of iterations = ");
+
+
+g = @(x)((x^3));
+dg=@(x)((3*x^2));
+
+for i=1:n
+    b = a - g(a)/dg(a);
+    if(abs(a-b)<tol)
+        fprintf("The point is %f\n",b);
+        g(b)
+        break;
+    else
+        a=b;
+    end
+end
