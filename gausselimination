@@ -6,8 +6,7 @@ close all
  b=input('Enter the elements of the matrix b:\n ');
  n=length(A);
 
-C = [A b];                                                  
-n= size(C,1);                                               
+C = [A b];                                                                                          
 x = zeros(n,1);                                             
 for i=1:n-1
     for j=i+1:n
